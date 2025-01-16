@@ -20,7 +20,7 @@ public class PedidoService {
     public PedidoDTO criarPedido(Pedido pedido) {
         // Salva pedido
         if (pedido == null) {
-            throw new IllegalArgumentException("O pagamento não pode ser nulo.");
+            throw new IllegalArgumentException("O pedido não pode ser nulo.");
         }
 
         pedidoRepository.save(pedido);
