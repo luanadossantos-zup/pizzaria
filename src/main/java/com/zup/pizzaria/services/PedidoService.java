@@ -18,11 +18,12 @@ public class PedidoService {
     }
 
     public PedidoDTO criarPedido(Pedido pedido) {
-        // Salva pedido
+        // Faz validação do pedido
         if (pedido == null) {
             throw new IllegalArgumentException("O pedido não pode ser nulo.");
         }
 
+        //Salva pedido
         pedidoRepository.save(pedido);
 
         // Obtenho cliente

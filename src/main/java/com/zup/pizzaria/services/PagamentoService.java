@@ -21,11 +21,10 @@ public class PagamentoService {
 
     public PagamentoDTO realizarPagamento(Pagamento pagamento) {
 
+        //Validação ao salvamento do pagamento
         if (pagamento == null) {
             throw new IllegalArgumentException("O pagamento não pode ser nulo.");
         }
-
-
 
         pagamentoRepository.save(pagamento);
 
@@ -34,7 +33,7 @@ public class PagamentoService {
                 .findById(pagamento.getPedidoId())
                 .orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
 
-
+        //Validação do valor pago vs valor total do pedido
         if (pagamento.getValorPago() < pedido.getValorTotal()) {
             throw new IllegalArgumentException("O valor pago não pode ser menor que o valor total do pedido.");
         }
