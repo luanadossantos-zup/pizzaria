@@ -20,6 +20,11 @@ public class PagamentoService {
     }
 
     public PagamentoDTO realizarPagamento(Pagamento pagamento) {
+
+        if (pagamento == null) {
+            throw new IllegalArgumentException("O pagamento não pode ser nulo.");
+        }
+
         pagamentoRepository.save(pagamento);
 
         //Buscar pedido
