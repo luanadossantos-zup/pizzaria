@@ -4,27 +4,19 @@ import java.util.Date;
 
 public class PagamentoDTO {
 
-    private String idCliente;
+
     private Long pedidoId;
     private Enum formaPagamento;
     private double valorPago;
     private Date dataHoraPagamento;
 
-    public PagamentoDTO(String idCliente, Long pedidoId, Enum formaPagamento, double valorPago, Date dataHoraPagamento) {
-        this.idCliente = idCliente;
+    public PagamentoDTO(Long pedidoId, Enum formaPagamento, double valorPago, Date dataHoraPagamento) {
         this.pedidoId = pedidoId;
         this.formaPagamento = formaPagamento;
         this.valorPago = valorPago;
         this.dataHoraPagamento = dataHoraPagamento;
     }
 
-    public String getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
-    }
 
     public Long getPedidoId() {
         return pedidoId;
