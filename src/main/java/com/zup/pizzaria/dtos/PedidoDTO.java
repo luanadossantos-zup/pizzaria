@@ -4,11 +4,13 @@ public class PedidoDTO {
     private String nomeCliente;
     private String emailCliente;
     private String descricaoPedido;
+    private double valorTotal;
 
-    public PedidoDTO(String nomeCliente, String emailCliente, String descricaoPedido) {
+    public PedidoDTO(String nomeCliente, String emailCliente, String descricaoPedido, double valorTotal) {
         this.nomeCliente = nomeCliente;
         this.emailCliente = emailCliente;
         this.descricaoPedido = descricaoPedido;
+        this.valorTotal = valorTotal;
     }
 
     public String getNomeCliente() {
@@ -33,5 +35,13 @@ public class PedidoDTO {
 
     public void setDescricaoPedido(String descricaoPedido) {
         this.descricaoPedido = descricaoPedido;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }
