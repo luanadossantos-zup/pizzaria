@@ -1,7 +1,6 @@
 package com.zup.pizzaria.services;
 
 import com.zup.pizzaria.dtos.PagamentoDTO;
-import com.zup.pizzaria.models.Cliente;
 import com.zup.pizzaria.models.Pagamento;
 import com.zup.pizzaria.models.Pedido;
 import com.zup.pizzaria.repository.ClienteRepository;
