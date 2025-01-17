@@ -5,6 +5,7 @@ import com.zup.pizzaria.dtos.ClienteRequestDTO;
 import com.zup.pizzaria.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class ClienteController {
 
     // Endpoint para cadastrar um novo cliente
     @PostMapping
-    public ClienteDTO salvarCliente(@Valid @RequestBody ClienteRequestDTO clienteRequestDTO) {
-        return clienteService.salvarCliente(clienteRequestDTO);
+    public ResponseEntity<ClienteDTO> salvarCliente(@Valid @RequestBody ClienteRequestDTO clienteRequestDTO) {
+        ClienteDTO clienteSalvo = clienteService.salvarCliente(clienteRequestDTO);
+        return ResponseEntity.status(201).body(clienteSalvo); // Retorna o status 201
     }
 }
