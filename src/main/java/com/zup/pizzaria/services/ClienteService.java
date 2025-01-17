@@ -4,9 +4,6 @@ import com.zup.pizzaria.dtos.ClienteDTO;
 import com.zup.pizzaria.dtos.ClienteRequestDTO;
 import com.zup.pizzaria.models.Cliente;
 import com.zup.pizzaria.repository.ClienteRepository;
-import com.zup.pizzaria.repository.PagamentoRepository;
-import com.zup.pizzaria.repository.PedidoRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
