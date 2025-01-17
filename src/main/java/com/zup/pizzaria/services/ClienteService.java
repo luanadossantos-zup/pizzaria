@@ -31,7 +31,7 @@ public class ClienteService {
 
     // Salva um novo cliente
     public ClienteDTO salvarCliente(ClienteRequestDTO clienteRequestDTO) {
-        // Convertendo o DTO para a entidade Cliente
+        // Converte o DTO para a entidade Cliente
         Cliente cliente = new Cliente();
         cliente.setNome(clienteRequestDTO.getNome());
         cliente.setEmail(clienteRequestDTO.getEmail());
@@ -39,7 +39,7 @@ public class ClienteService {
         // Salvar no BD
         Cliente clienteSalvo = clienteRepository.save(cliente);
 
-        // Retornar o cliente salvo como DTO
+        // Retorna o cliente salvo como DTO
         return new ClienteDTO(clienteSalvo.getId(), clienteSalvo.getNome());
     }
 
