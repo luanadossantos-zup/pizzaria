@@ -12,11 +12,11 @@ public class Pagamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long pedidoId;
-    private Enum formaPagamento;
+    private FormaPagamento formaPagamento;
     private double valorPago;
     private Date dataHoraPagamento;
 
-    public Pagamento(Long pedidoId, Enum formaPagamento, double valorPago, Date dataHoraPagamento) {
+    public Pagamento(Long pedidoId, FormaPagamento formaPagamento, double valorPago, Date dataHoraPagamento) {
         this.pedidoId = pedidoId;
         this.formaPagamento = formaPagamento;
         this.valorPago = valorPago;
@@ -39,11 +39,11 @@ public class Pagamento {
         this.pedidoId = pedidoId;
     }
 
-    public Enum getFormaPagamento() {
+    public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(Enum formaPagamento) {
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 

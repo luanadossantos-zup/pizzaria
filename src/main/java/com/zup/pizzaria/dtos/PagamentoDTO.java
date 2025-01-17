@@ -1,16 +1,21 @@
 package com.zup.pizzaria.dtos;
 
+import com.zup.pizzaria.models.FormaPagamento;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
 import java.util.Date;
 
 public class PagamentoDTO {
 
 
     private Long pedidoId;
-    private Enum formaPagamento;
+    @Enumerated(EnumType.STRING)
+    private FormaPagamento formaPagamento;
     private double valorPago;
     private Date dataHoraPagamento;
 
-    public PagamentoDTO(Long pedidoId, Enum formaPagamento, double valorPago, Date dataHoraPagamento) {
+    public PagamentoDTO(Long pedidoId, FormaPagamento formaPagamento, double valorPago, Date dataHoraPagamento) {
         this.pedidoId = pedidoId;
         this.formaPagamento = formaPagamento;
         this.valorPago = valorPago;
@@ -26,11 +31,11 @@ public class PagamentoDTO {
         this.pedidoId = pedidoId;
     }
 
-    public Enum getFormaPagamento() {
+    public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(Enum formaPagamento) {
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 
