@@ -3,6 +3,7 @@ package com.zup.pizzaria.controllers;
 import com.zup.pizzaria.dtos.ClienteDTO;
 import com.zup.pizzaria.dtos.ClienteRequestDTO;
 import com.zup.pizzaria.services.ClienteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +24,7 @@ public class ClienteController {
 
     // Endpoint para cadastrar um novo cliente
     @PostMapping
-    public ClienteDTO salvarCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
+    public ClienteDTO salvarCliente(@Valid @RequestBody ClienteRequestDTO clienteRequestDTO) {
         return clienteService.salvarCliente(clienteRequestDTO);
     }
 }
