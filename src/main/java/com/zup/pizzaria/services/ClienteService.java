@@ -33,18 +33,17 @@ public class ClienteService {
         try {
             cliente.setNome(clienteRequestDTO.getNome());
         } catch (Exception e) {
-            throw new RuntimeException(e + ": o nome não pode estar vazio");
+            throw new RuntimeException(e + ": houve um erro ao setar/alterar o nome.");
         }
 
         try {
             cliente.setEmail(clienteRequestDTO.getEmail());
         } catch (Exception e) {
-            throw new RuntimeException(e + ": o e-mail não pode estar vazio");
+            throw new RuntimeException(e + ": houve um erro ao setar/alterar o email.");
         }
 
 
         // Salvar no BD
-
 
         Cliente clienteSalvo = clienteRepository.save(cliente);
         // Retorna o cliente salvo como DTO
