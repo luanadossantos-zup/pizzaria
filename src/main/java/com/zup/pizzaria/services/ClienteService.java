@@ -30,17 +30,9 @@ public class ClienteService {
     public ClienteDTO salvarCliente(ClienteRequestDTO clienteRequestDTO) {
         // Converte o DTO para a entidade Cliente
         Cliente cliente = new Cliente();
-        try {
-            cliente.setNome(clienteRequestDTO.getNome());
-        } catch (Exception e) {
-            throw new RuntimeException(e + ": houve um erro ao setar/alterar o nome.");
-        }
 
-        try {
-            cliente.setEmail(clienteRequestDTO.getEmail());
-        } catch (Exception e) {
-            throw new RuntimeException(e + ": houve um erro ao setar/alterar o email.");
-        }
+        setNomeCliente(cliente, clienteRequestDTO);
+        setEmailCliente(cliente, clienteRequestDTO);
 
 
         // Salvar no BD
@@ -50,4 +42,22 @@ public class ClienteService {
         return new ClienteDTO(clienteSalvo.getId(), clienteSalvo.getNome());
     }
 
+
+    //Isola try-catch segundo princípios de Clean Code
+
+    public void setNomeCliente (Cliente cliente, ClienteRequestDTO clienteRequestDTO) {
+        try {
+            cliente.setNome(clienteRequestDTO.getNome());
+        } catch (Exception e) {
+            throw new RuntimeException(e + ": houve um erro ao setar/alterar o nome.");
+        }
+    }
+
+    private void setEmailCliente(Cliente cliente, ClienteRequestDTO clienteRequestDTO) {
+        try {
+            cliente.setEmail(clienteRequestDTO.getEmail());
+        } catch (Exception e) {
+            throw new RuntimeException(e + ": houve um erro ao setar/alterar o email.");
+        }
+    }
 }
