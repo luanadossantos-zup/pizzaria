@@ -30,12 +30,23 @@ public class ClienteService {
     public ClienteDTO salvarCliente(ClienteRequestDTO clienteRequestDTO) {
         // Converte o DTO para a entidade Cliente
         Cliente cliente = new Cliente();
-        cliente.setNome(clienteRequestDTO.getNome());
-        cliente.setEmail(clienteRequestDTO.getEmail());
+        try {
+            cliente.setNome(clienteRequestDTO.getNome());
+        } catch (Exception e) {
+            throw new RuntimeException(e + ": o nome não pode estar vazio");
+        }
+
+        try {
+            cliente.setEmail(clienteRequestDTO.getEmail());
+        } catch (Exception e) {
+            throw new RuntimeException(e + ": o e-mail não pode estar vazio");
+        }
+
 
         // Salvar no BD
-        Cliente clienteSalvo = clienteRepository.save(cliente);
 
+
+        Cliente clienteSalvo = clienteRepository.save(cliente);
         // Retorna o cliente salvo como DTO
         return new ClienteDTO(clienteSalvo.getId(), clienteSalvo.getNome());
     }
